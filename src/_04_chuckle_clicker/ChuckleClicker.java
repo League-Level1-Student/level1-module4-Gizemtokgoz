@@ -21,7 +21,6 @@ public class ChuckleClicker implements ActionListener {
 	}
 
 	public void makeButtons() {
-		JOptionPane.showMessageDialog(null, "make buttons");
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
 		frame.setVisible(true);
@@ -43,11 +42,11 @@ public class ChuckleClicker implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		if (arg0.getSource() == button1) {
-			JOptionPane.showMessageDialog(null, "");
+			JOptionPane.showMessageDialog(null, "Why can't elsa have a baloon?");
 		}
 
 		if (arg0.getSource() == button2) {
-			JOptionPane.showMessageDialog(null, "");
+			JOptionPane.showMessageDialog(null, "Because she would let it go :)");
 		}
 	}
 }
