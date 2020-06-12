@@ -24,7 +24,7 @@ public class WhackAMole {
 		frame.pack();
 	}
 	
-	void drawButtons() {
+	void drawButtons(int randInt) {
 		
 	}
 }
