@@ -18,6 +18,8 @@ import javax.swing.JPanel;
 public class SlotMachine implements ActionListener {
 	JFrame frame = new JFrame();
 	JButton spin = new JButton();
+	String order = new String("");
+	boolean addedAL = false;
 
 	public void run() {
 		frame.setPreferredSize(new Dimension(2000, 800));
@@ -25,44 +27,33 @@ public class SlotMachine implements ActionListener {
 		panel.setPreferredSize(new Dimension(2000, 800));
 		Random rand = new Random();
 		spin.setPreferredSize(new Dimension(100, 50));
-		spin.addActionListener(this);		
-		String order = new String("");
 		
+		if(!addedAL) {
+			spin.addActionListener(this);
+			addedAL = true;
+		}
+		
+		order = new String("");
+
 		for (int i = 0; i < 3; i++) {
 			int picture = rand.nextInt(3);
 			order += picture;
 			JLabel firstImage = null;
 			JLabel secondImage = null;
 			JLabel thirdImage = null;
-			
+
 			if (picture == 0) {
 				firstImage = createLabelImage("cherry.png");
 				panel.add(firstImage);
-			}
-			else if (picture == 1) {
+			} else if (picture == 1) {
 				secondImage = createLabelImage("orange.png");
 				panel.add(secondImage);
-			}
-			else if (picture == 2) {
+			} else if (picture == 2) {
 				thirdImage = createLabelImage("seven.png");
 				panel.add(thirdImage);
 			}
 		}
-		
-		if (order.equals(000)) {
-			JOptionPane.showMessageDialog(null, "YAY YOU WON!");
-		}
-		
-		if (order.equals(111)) {
-			JOptionPane.showMessageDialog(null, "YAY YOU WON!");
-		}
 
-		if (order.equals(222)) {
-			JOptionPane.showMessageDialog(null, "YAY YOU WON!");
-		}
-		
-		System.out.println(order);
-		
 		frame.add(panel);
 		panel.add(spin);
 		frame.pack();
@@ -87,8 +78,21 @@ public class SlotMachine implements ActionListener {
 		if (buttonPressed == spin) {
 			frame.getContentPane().removeAll();
 			run();
-		}
 
+			System.out.println(order);
+
+			if (order.equals("000")) {
+				JOptionPane.showMessageDialog(null, "YAY YOU WON");
+			}
+
+			if (order.equals("111")) {
+				JOptionPane.showMessageDialog(null, "YAY YOU WON");
+			}
+
+			if (order.equals("222")) {
+				JOptionPane.showMessageDialog(null, "YAY YOU WON");
+			}
+		}
 	}
 
 }
